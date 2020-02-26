@@ -1,0 +1,40 @@
+.addTest {
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.label {
+    display: inline;
+}
+
+.inputSection {
+    margin-bottom: 30px;
+}
+
+.addTestInput {
+    border-radius: 5px;
+    border: 1px solid black;
+    padding: 5px 10px;
+    font-size: 15px;
+}
+
+.time {
+    margin-left: 20px;
+}
+
+.number {
+    width: 50px;
+    margin-left: 20px;
+}
+
+.addButton {
+    display: block;
+    margin: 20px auto;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
