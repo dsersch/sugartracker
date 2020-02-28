@@ -5,22 +5,42 @@ class AddTest extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            fasting: '',
+            userid: this.props.id,
+            fasting: true,
             sugar: '',
             notes: ''
         }
     }
 
     onFastingChange = (event) => {
-        this.setState({fasting: event.target.value})
+        this.setState({fasting: event.target.checked})
     }
 
     onSugarChange = (event) => {
-        this.state({sugar: event.target.value})
+        this.setState({sugar: event.target.value})
     }
 
     onNotesChange = (event) => {
-        this.state({notes: event.target.value})
+        this.setState({notes: event.target.value})
+    }
+
+    onSubmit = () => {
+        if (this.state.sugar === '') {
+            alert('Please add a test result.')
+        } else {
+            fetch('http://localhost:3001/addTest', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(this.state)
+            })
+            .then((response) => response.json())
+            .then((res) => {
+              console.log('Success:', res);
+            })
+            .catch((error) => {
+              console.error('Error:', error);
+            });
+        } 
     }
 
     render() {
@@ -29,7 +49,7 @@ class AddTest extends Component {
                 <h2>Add Test</h2>
                 <div className="inputSection">
                     <p className="label">fasting:  </p>
-                    <input onChange={this.onFastingChange} type="checkbox" />
+                    <input onChange={this.onFastingChange} type="checkbox" checked={this.state.fasting} />
                 </div>
                 <div className="inputSection">
                     <p className="label">Result</p>
@@ -37,7 +57,7 @@ class AddTest extends Component {
                 </div>
                 <p className="notesLabel">Notes</p>
                 <input onChange={this.onNotesChange} type="textbox" className="addTestInput"/>
-                <button className="addButton">Add Result</button>
+                <button onClick={this.onSubmit} className="addButton">Add Result</button>
             </div> 
         )
     }  
