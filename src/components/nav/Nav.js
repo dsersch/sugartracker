@@ -1,12 +1,12 @@
 import React from 'react';
 import './Nav.css';
 
-const Nav = () => {
+const Nav = ({ onRouteChange }) => {
     return (
         <div className='navBar'>
-            <p className='navButton'>home</p>
-            <p className='navButton'>add test</p>
-            <p className='navButton'>sign out</p>
+            <p className='navButton' onClick={() => onRouteChange('home')}>home</p>
+            <p className='navButton' onClick={() => onRouteChange('addTest')}>add test</p>
+            <p className='navButton' onClick={() => onRouteChange('signout')}>sign out</p>
         </div>
     )
 };
