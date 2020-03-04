@@ -35,7 +35,7 @@ class AddTest extends Component {
             })
             .then((response) => response.json())
             .then((res) => {
-              console.log('Success:', res);
+              this.props.onRouteChange('home');
             })
             .catch((error) => {
               console.error('Error:', error);

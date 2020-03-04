@@ -34,9 +34,9 @@ class App extends Component {
       case 'home':
         return <Home userid={this.state.userid}/>;
       case 'register':
-        return <Register />;
+        return <Register onSignIn={this.onSignIn} />;
       case 'addTest': 
-        return <AddTest id={this.state.userid} />
+        return <AddTest id={this.state.userid} onRouteChange={this.onRouteChange} />
       case 'signin':
         return <SignIn onSignIn={this.onSignIn}/>
       default:

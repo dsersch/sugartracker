@@ -28,7 +28,7 @@ class SignIn  extends Component {
             })
             .then((response) => response.json())
             .then((res) => {
-              res.message === 'success' ? this.props.onSignIn(res.result) : alert(res)
+              res.message === 'success' ? this.props.onSignIn(res.result) : alert(res.message)
             })
             .catch((error) => {
               console.error('Error:', error);
