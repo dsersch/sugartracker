@@ -9,19 +9,48 @@ class SignIn  extends Component {
         }
     }
 
+    onSignInEmailChange = (event) => {
+        this.setState({signInEmail: event.target.value})
+    }
+
+    onSignInPasswordChange = (event) => {
+        this.setState({signInPassword: event.target.value})
+    }
+
+    onSubmit = () => {
+        if (this.state.signInEmail === '' || this.state.signInPassword === '') {
+            alert('Please provide an email and a password...')
+        } else {
+            fetch('http://localhost:3001/signin', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(this.state)
+            })
+            .then((response) => response.json())
+            .then((res) => {
+              res.message === 'success' ? this.props.onSignIn(res.result) : alert(res)
+            })
+            .catch((error) => {
+              console.error('Error:', error);
+            });
+        } 
+    }
+
     render() {
         return (
             <div className="registerForm">
                 <h2>Sign In</h2>
                 <div className="inputSection">
                     <p className="formLabel">Email</p>
-                    <input className="addTestInput" type="text" placeholder="email"/>
+                    <input className="addTestInput" type="text" placeholder="email"
+                    onChange={this.onSignInEmailChange} />
                 </div>
                 <div className="inputSection">
                     <p className="formLabel">Password</p>
-                    <input className="addTestInput" type="password" placeholder="password"/>
+                    <input className="addTestInput" type="password" placeholder="password"
+                    onChange={this.onSignInPasswordChange} />
                 </div>
-                <button className="addButton" onClick={() => this.props.onRouteChange('home')}>Log In</button>
+                <button className="addButton" onClick={this.onSubmit}>Log In</button>
             </div>
         )
     }

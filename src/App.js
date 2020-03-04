@@ -17,6 +17,10 @@ class App extends Component {
     }
   }
 
+  onSignIn = (userId) => {
+    this.setState({userid: userId, isSignedIn: true, route: 'home'})
+  } 
+
   onRouteChange =(route) => {
     if (route === 'signout') {
       this.setState({route: 'signin', isSignedIn: false, userid: '', testResults: []})
@@ -34,7 +38,7 @@ class App extends Component {
       case 'addTest': 
         return <AddTest id={this.state.userid} />
       case 'signin':
-        return <SignIn onRouteChange={this.onRouteChange}/>
+        return <SignIn onSignIn={this.onSignIn}/>
       default:
         return <div>whoa, messed that up...</div>
     }
@@ -44,11 +48,8 @@ render() {
   
   return (
       <div className="App">
-        <Nav onRouteChange={this.onRouteChange} />
+        <Nav onRouteChange={this.onRouteChange} isSignedIn={this.state.isSignedIn} />
         {this.currentRoute()}
-        {/* <Register />
-        {this.generateStats()}
-        <AddTest id={this.state.userid} /> */}
       </div>
     );
   }
