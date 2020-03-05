@@ -1,3 +1,8 @@
 .homeInfo {
     text-align: center;
+    border-radius: 20px;
+    padding:30px;
+    width: 40%;
+    margin: 0 auto;
+    margin-top: 50px;
 }

@@ -45,7 +45,7 @@ class AddTest extends Component {
 
     render() {
         return (
-            <div className="addTest">
+            <div className="addTest shadow">
                 <h2>Add Test</h2>
                 <div className="inputSection">
                     <p className="label">fasting:  </p>
@@ -53,11 +53,11 @@ class AddTest extends Component {
                 </div>
                 <div className="inputSection">
                     <p className="label">Result</p>
-                    <input onChange={this.onSugarChange} type="number" className="addTestInput number"/>
+                    <input onChange={this.onSugarChange} type="number" className="addTestInput shadow number"/>
                 </div>
                 <p className="notesLabel">Notes</p>
-                <input onChange={this.onNotesChange} type="textbox" className="addTestInput"/>
-                <button onClick={this.onSubmit} className="addButton">Add Result</button>
+                <input onChange={this.onNotesChange} type="textbox" className="addTestInput shadow"/>
+                <button onClick={this.onSubmit} className="addButton shadow">Add Result</button>
             </div> 
         )
     }  

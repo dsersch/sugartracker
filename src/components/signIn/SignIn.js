@@ -38,19 +38,19 @@ class SignIn  extends Component {
 
     render() {
         return (
-            <div className="registerForm">
+            <div className="registerForm shadow">
                 <h2>Sign In</h2>
                 <div className="inputSection">
                     <p className="formLabel">Email</p>
-                    <input className="addTestInput" type="text" placeholder="email"
+                    <input className="addTestInput shadow" type="text" placeholder="email"
                     onChange={this.onSignInEmailChange} />
                 </div>
                 <div className="inputSection">
                     <p className="formLabel">Password</p>
-                    <input className="addTestInput" type="password" placeholder="password"
+                    <input className="addTestInput shadow" type="password" placeholder="password"
                     onChange={this.onSignInPasswordChange} />
                 </div>
-                <button className="addButton" onClick={this.onSubmit}>Log In</button>
+                <button className="addButton shadow" onClick={this.onSubmit}>Log In</button>
             </div>
         )
     }

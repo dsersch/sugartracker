@@ -41,12 +41,12 @@ class Home extends Component  {
                 } 
             })
             return (
-                <div className='homeInfo'>
+                <div className='homeInfo shadow'>
                     <h1>Basic info</h1>
                     <p>last test was: {last}</p>
                     <p>last test date here...</p>
                     <p>fasting average: {fastingTotal/fastingTests}</p>
-                    <p>after food average:{afterFoodTotal/afterFoodTests}</p>
+                    <p>after food average: {afterFoodTotal/afterFoodTests}</p>
                 </div>
             )
         }
