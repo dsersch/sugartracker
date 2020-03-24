@@ -11,7 +11,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      userid: 1,
+      userid: '',
       route: 'signin',
       isSignedIn: false
     }
@@ -45,7 +45,6 @@ class App extends Component {
   }
 
 render() {
-  
   return (
       <div className="App">
         <Nav onRouteChange={this.onRouteChange} isSignedIn={this.state.isSignedIn} />
